@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawasaki Jakarta Prima - Bima Lindra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #333;
+            border-top: 5px solid #66cc33;
+        }
+
+        .brand-logo {
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #aaa;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #66cc33;
+        }
+
+        .cta-button {
+            background-color: #66cc33;
+            color: #121212;
+            padding: 10px 24px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #55b329;
+        }
+
+        .hero {
+            padding: 60px 50px 30px 50px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #888;
+            max-width: 700px;
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 0 50px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .filter-btn {
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            padding: 15px 10px;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            color: #fff;
+        }
+
+        .filter-btn.active {
+            color: #66cc33;
+            border-bottom-color: #66cc33;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            padding: 0 50px 60px 50px;
+        }
+
+        .product-card {
+            background-color: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #66cc33;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background-color: #252525;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.6));
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: #66cc33;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            height: 45px;
+        }
+
+        .product-link {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            border-bottom: 2px solid #66cc33;
+            padding-bottom: 3px;
+            transition: color 0.3s;
+        }
+
+        .product-link:hover {
+            color: #66cc33;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#66cc33" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            KAWASAKI JAKARTA PRIMA
+        </div>
+        <div class="nav-links">
+            <a href="#">Model</a>
+            <a href="#">Layanan</a>
+            <a href="#">Kontak</a>
+        </div>
+        <a href="#" class="cta-button">Jadwalkan test ride</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Pilih Model Anda</h1>
+        <p>Dari motor sport harian hingga superbike bertenaga tinggi dan kendaraan adventure. Hubungi kami untuk harga dan ketersediaan unit terbaru. (Deployment by Bima Lindra - 102042400057)</p>
+    </section>
+
+    <section class="filters">
+        <button class="filter-btn active">Semua</button>
+        <button class="filter-btn">NINJA</button>
+        <button class="filter-btn">Z SERIES</button>
+        <button class="filter-btn">VERSYS</button>
+    </section>
+
+    <section class="product-grid">
+        
+        <!-- Product 1: Ninja ZX-25R -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="image/Ninja ZX-25R.PNG" alt="Ninja ZX-25R">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h2 class="product-title">Ninja ZX-25R</h2>
+                    <span class="product-category">Sport</span>
+                </div>
+                <p class="product-desc">Motor sport 250cc in-line four bertenaga tinggi yang dinamis untuk keseharian.</p>
+                <a href="#" class="product-link">Tanya unit</a>
+            </div>
+        </div>
+
+        <!-- Product 2: Z900 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="image/Z900.PNG" alt="Z900">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h2 class="product-title">Z900</h2>
+                    <span class="product-category">Z Series</span>
+                </div>
+                <p class="product-desc">Naked bike agresif dengan mesin 948cc yang responsif dan handling presisi.</p>
+                <a href="#" class="product-link">Tanya unit</a>
+            </div>
+        </div>
+
+        <!-- Product 3: Ninja H2 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="image/Ninja H2.PNG" alt="Ninja H2">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h2 class="product-title">Ninja H2</h2>
+                    <span class="product-category">Hypersport</span>
+                </div>
+                <p class="product-desc">Motor flagship supercharged dengan kenyamanan dan tenaga buas kelas atas.</p>
+                <a href="#" class="product-link">Tanya unit</a>
+            </div>
+        </div>
+
+        <!-- Product 4: Versys-X 250 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="image/Versys-X 250.PNG" alt="Versys-X 250">
+            </div>
+            <div class="product-info">
+                <div class="product-header">
+                    <h2 class="product-title">Versys-X 250</h2>
+                    <span class="product-category">Versys</span>
+                </div>
+                <p class="product-desc">Motor touring serbaguna yang tangguh untuk perjalanan luar kota dan segala medan.</p>
+                <a href="#" class="product-link">Tanya unit</a>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>
