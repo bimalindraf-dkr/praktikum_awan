@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kawasaki Racing Showroom - Bima Lindra</title>
+    <title>Kawasaki Fleet & Inventory Dashboard - Bima Lindra</title>
     <style>
         * {
             margin: 0;
@@ -13,307 +13,417 @@
         }
 
         body {
-            background-color: #0e1012;
-            color: #e0e0e0;
-        }
-
-        .navbar {
+            background-color: #0b0d0f;
+            color: #e4e6eb;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background-color: #16191d;
-            border-bottom: 1px solid #2c313a;
-            border-top: 5px solid #66cc33;
+            min-height: 100vh;
         }
 
-        .brand-logo {
-            font-weight: bold;
-            font-size: 16px;
-            letter-spacing: 2px;
-            color: #fff;
+        /* --- SIDEBAR NAVIGASI --- */
+        .sidebar {
+            width: 260px;
+            background-color: #13161a;
+            border-right: 1px solid #23272f;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px 20px;
+        }
+
+        .brand {
             display: flex;
             align-items: center;
             gap: 12px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #aaa;
-            margin: 0 15px;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #66cc33;
-        }
-
-        .cta-button {
-            background-color: #66cc33;
-            color: #0e1012;
-            padding: 10px 24px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #55b329;
-        }
-
-        /* Banner Pengumuman Tambahan (Hasil Rombakan) */
-        .promo-banner {
-            background-color: #1f291c;
-            color: #8ce65c;
-            text-align: center;
-            padding: 10px;
-            font-size: 13px;
-            border-bottom: 1px solid #2e4028;
-            letter-spacing: 0.5px;
-        }
-
-        .hero {
-            padding: 50px 50px 25px 50px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 44px;
-            font-weight: 300;
-            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             color: #fff;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #23272f;
         }
 
-        .hero p {
-            font-size: 15px;
-            color: #9aa0a6;
-            max-width: 720px;
-            line-height: 1.6;
-            margin: 0 auto;
-        }
-
-        .filters {
+        .menu {
+            list-style: none;
+            margin-top: 25px;
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 0 50px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #262a30;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        .filter-btn {
-            background-color: transparent;
-            border: none;
-            border-bottom: 3px solid transparent;
-            padding: 15px 10px;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-            color: #777;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover {
-            color: #fff;
-        }
-
-        .filter-btn.active {
-            color: #66cc33;
-            border-bottom-color: #66cc33;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            padding: 0 50px 60px 50px;
-        }
-
-        .product-card {
-            background-color: #181b20;
-            border: 1px solid #282c34;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: #66cc33;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 210px;
-            background-color: #20242b;
+        .menu li a {
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 20px;
+            gap: 12px;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #8b949e;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s;
         }
 
-        .product-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.6));
+        .menu li a:hover {
+            background-color: #1c2128;
+            color: #fff;
         }
 
-        .product-info {
-            padding: 22px;
+        .menu li a.active {
+            background-color: rgba(102, 204, 51, 0.12);
+            color: #66cc33;
+            border-left: 3px solid #66cc33;
         }
 
-        .product-header {
+        .user-profile {
+            background-color: #181c22;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #262b34;
+        }
+
+        .user-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .user-nim {
+            font-size: 12px;
+            color: #66cc33;
+            margin-top: 3px;
+        }
+
+        /* --- KONTEN UTAMA DASHBOARD --- */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topbar {
+            height: 70px;
+            background-color: #13161a;
+            border-bottom: 1px solid #23272f;
+            padding: 0 35px;
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
+            align-items: center;
         }
 
-        .product-title {
+        .page-title {
             font-size: 20px;
             font-weight: 600;
             color: #fff;
         }
 
-        .product-category {
-            font-size: 11px;
+        .cloud-badge {
+            background-color: #192b18;
             color: #66cc33;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-price {
-            font-size: 13px;
-            color: #b0b8c4;
+            border: 1px solid #2d5229;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 12px;
         }
 
-        .product-desc {
-            font-size: 13px;
-            color: #88909c;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            height: 45px;
+        .dashboard-content {
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        .product-link {
-            text-decoration: none;
+        /* --- KARTU STATISTIK (KPI) --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background-color: #13161a;
+            border: 1px solid #23272f;
+            border-radius: 8px;
+            padding: 20px;
+            border-top: 3px solid #66cc33;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 26px;
+            font-weight: 700;
             color: #fff;
-            font-size: 13px;
-            font-weight: bold;
-            display: inline-block;
-            border-bottom: 2px solid #66cc33;
-            padding-bottom: 3px;
-            transition: color 0.3s;
+            margin: 8px 0;
         }
 
-        .product-link:hover {
+        .stat-trend {
+            font-size: 12px;
             color: #66cc33;
+        }
+
+        /* --- TABEL INVENTARIS UNIT --- */
+        .panel {
+            background-color: #13161a;
+            border: 1px solid #23272f;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid #23272f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-header h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .btn-add {
+            background-color: #66cc33;
+            color: #0b0d0f;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: #181c22;
+            color: #8b949e;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 14px 25px;
+            border-bottom: 1px solid #23272f;
+        }
+
+        td {
+            padding: 16px 25px;
+            border-bottom: 1px solid #1e2229;
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        tr:hover td {
+            background-color: #181c22;
+        }
+
+        .unit-cell {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .unit-thumb {
+            width: 65px;
+            height: 45px;
+            background-color: #1f242c;
+            border-radius: 6px;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .unit-thumb img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .unit-name {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .unit-cc {
+            font-size: 12px;
+            color: #8b949e;
+        }
+
+        .badge-status {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-ready {
+            background-color: rgba(102, 204, 51, 0.15);
+            color: #66cc33;
+        }
+
+        .status-limited {
+            background-color: rgba(245, 166, 35, 0.15);
+            color: #f5a623;
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="brand-logo">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#66cc33" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            KAWASAKI MOTOR INDONESIA
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div>
+            <div class="brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#66cc33" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                KAWASAKI ADMIN
+            </div>
+            <ul class="menu">
+                <li><a href="#" class="active">📊 Dashboard Utama</a></li>
+                <li><a href="#">🏍️ Inventaris Unit</a></li>
+                <li><a href="#">🛠️ Jadwal Servis</a></li>
+                <li><a href="#">📈 Laporan Penjualan</a></li>
+                <li><a href="#">⚙️ Pengaturan Cloud</a></li>
+            </ul>
         </div>
-        <div class="nav-links">
-            <a href="#">Katalog Unit</a>
-            <a href="#">Suku Cadang</a>
-            <a href="#">Dealer Resmi</a>
-        </div>
-        <a href="#" class="cta-button">Booking Service</a>
-    </nav>
 
-    <div class="promo-banner">
-        🔥 Unit Model Year 2026 Telah Tersedia — Pembaruan Continuous Deployment oleh Bima Lindra (102042400057)
+        <div class="user-profile">
+            <div class="user-name">Bima Lindra</div>
+            <div class="user-nim">NIM: 102042400057</div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <header class="topbar">
+            <div class="page-title">Overview Inventaris & Distribusi Unit</div>
+            <div class="cloud-badge">● Cloud Status: Deployed & Active</div>
+        </header>
+
+        <main class="dashboard-content">
+            <!-- KPI Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Unit Tersedia</div>
+                    <div class="stat-value">42 Unit</div>
+                    <div class="stat-trend">↑ 4 Model Aktif</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Permintaan Test Ride</div>
+                    <div class="stat-value">18 Jadwal</div>
+                    <div class="stat-trend">↑ Minggu Ini</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Estimasi Nilai Aset</div>
+                    <div class="stat-value">IDR 4.8 M</div>
+                    <div class="stat-trend">● Gudang Jakarta</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Platform Server</div>
+                    <div class="stat-value">Azure / Vercel</div>
+                    <div class="stat-trend">✓ Continuous Deployment</div>
+                </div>
+            </section>
+
+            <!-- Data Table -->
+            <section class="panel">
+                <div class="panel-header">
+                    <h2>Daftar Stok Unit Kawasaki (Model Year 2026)</h2>
+                    <button class="btn-add">+ Tambah Unit Baru</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Motor</th>
+                            <th>Kategori</th>
+                            <th>Harga OTR Jakarta</th>
+                            <th>Stok Gudang</th>
+                            <th>Status Ketersediaan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="unit-cell">
+                                    <div class="unit-thumb">
+                                        <img src="image/Ninja ZX-25R.PNG" alt="Ninja ZX-25R">
+                                    </div>
+                                    <div>
+                                        <div class="unit-name">Ninja ZX-25R</div>
+                                        <div class="unit-cc">249.8cc Inline-4</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Supersport</td>
+                            <td>IDR 110.900.000</td>
+                            <td>15 Unit</td>
+                            <td><span class="badge-status status-ready">Ready Stock</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="unit-cell">
+                                    <div class="unit-thumb">
+                                        <img src="image/Z900.PNG" alt="Z900">
+                                    </div>
+                                    <div>
+                                        <div class="unit-name">Z900</div>
+                                        <div class="unit-cc">948cc Supernaked</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Z Series</td>
+                            <td>IDR 269.000.000</td>
+                            <td>9 Unit</td>
+                            <td><span class="badge-status status-ready">Ready Stock</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="unit-cell">
+                                    <div class="unit-thumb">
+                                        <img src="image/Ninja H2.PNG" alt="Ninja H2">
+                                    </div>
+                                    <div>
+                                        <div class="unit-name">Ninja H2</div>
+                                        <div class="unit-cc">998cc Supercharged</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Hypersport</td>
+                            <td>IDR 873.000.000</td>
+                            <td>2 Unit</td>
+                            <td><span class="badge-status status-limited">Limited Unit</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="unit-cell">
+                                    <div class="unit-thumb">
+                                        <img src="image/Versys-X 250.PNG" alt="Versys-X 250">
+                                    </div>
+                                    <div>
+                                        <div class="unit-name">Versys-X 250</div>
+                                        <div class="unit-cc">249cc Parallel-Twin</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Adventure</td>
+                            <td>IDR 72.100.000</td>
+                            <td>16 Unit</td>
+                            <td><span class="badge-status status-ready">Ready Stock</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
     </div>
-
-    <section class="hero">
-        <h1>Katalog Motor Unggulan</h1>
-        <p>Jelajahi lini performa tinggi mulai dari kelas supersport 4-silinder, streetfighter agresif, hingga motor penjelajah segala medan dengan teknologi terkini.</p>
-    </section>
-
-    <section class="filters">
-        <button class="filter-btn active">Semua Lini</button>
-        <button class="filter-btn">NINJA</button>
-        <button class="filter-btn">Z SERIES</button>
-        <button class="filter-btn">VERSYS</button>
-    </section>
-
-    <section class="product-grid">
-        
-        <div class="product-card">
-            <div class="product-image">
-                <img src="image/Ninja ZX-25R.PNG" alt="Ninja ZX-25R">
-            </div>
-            <div class="product-info">
-                <div class="product-header">
-                    <h2 class="product-title">Ninja ZX-25R</h2>
-                    <span class="product-category">Supersport</span>
-                </div>
-                <div class="product-price">Mulai IDR 110.900.000</div>
-                <p class="product-desc">Mesin 249.8cc 4-silinder segaris dengan raungan khas dan fitur quick shifter.</p>
-                <a href="#" class="product-link">Lihat Spesifikasi</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <img src="image/Z900.PNG" alt="Z900">
-            </div>
-            <div class="product-info">
-                <div class="product-header">
-                    <h2 class="product-title">Z900</h2>
-                    <span class="product-category">Z Series</span>
-                </div>
-                <div class="product-price">Mulai IDR 269.000.000</div>
-                <p class="product-desc">Desain Sugomi agresif dengan kontrol traksi KTRC dan panel instrumen TFT.</p>
-                <a href="#" class="product-link">Lihat Spesifikasi</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <img src="image/Ninja H2.PNG" alt="Ninja H2">
-            </div>
-            <div class="product-info">
-                <div class="product-header">
-                    <h2 class="product-title">Ninja H2</h2>
-                    <span class="product-category">Hypersport</span>
-                </div>
-                <div class="product-price">Mulai IDR 873.000.000</div>
-                <p class="product-desc">Teknologi mesin Supercharged dengan akselerasi ekstrem dan rangka teralis.</p>
-                <a href="#" class="product-link">Lihat Spesifikasi</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <img src="image/Versys-X 250.PNG" alt="Versys-X 250">
-            </div>
-            <div class="product-info">
-                <div class="product-header">
-                    <h2 class="product-title">Versys-X 250</h2>
-                    <span class="product-category">Adventure</span>
-                </div>
-                <div class="product-price">Mulai IDR 72.100.000</div>
-                <p class="product-desc">Posisi berkendara tegak yang ergonomis dengan suspensi travel panjang.</p>
-                <a href="#" class="product-link">Lihat Spesifikasi</a>
-            </div>
-        </div>
-
-    </section>
 
 </body>
 </html>
